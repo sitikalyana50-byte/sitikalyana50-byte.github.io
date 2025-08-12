@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Toko Bakery — Aneka Kue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --cream:#FFF6E8;
+      --white:#FFFFFF;
+      --maroon:#7A0E16; /* marun */
+      --muted:#BFAFA2;
+      --glass: rgba(255,255,255,0.6);
+      --radius:16px;
+      --shadow: 0 6px 18px rgba(0,0,0,0.08);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--cream), #FFFDFD 30%);
+      color:#2b2b2b;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px;
+    }
+
+    /* Header */
+    .header{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      justify-content:space-between;
+      max-width:1200px;
+      margin:0 auto 28px auto;
+    }
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{
+      width:62px;height:62px;border-radius:14px;background:linear-gradient(135deg,var(--maroon),#C0392B);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:800;box-shadow:var(--shadow);
+    }
+    .brand h1{margin:0;font-size:1.25rem}
+    .brand p{margin:0;font-size:0.85rem;color:var(--muted)}
+
+    .controls{display:flex;gap:12px;align-items:center}
+    .search{background:var(--white);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow);display:flex;gap:8px;align-items:center;min-width:260px}
+    .search input{border:0;outline:none;background:transparent;font-size:0.95rem}
+    .filter-btn{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:10px 14px;border-radius:12px;display:flex;gap:8px;align-items:center;cursor:pointer}
+
+    /* Hero */
+    .hero{max-width:1200px;margin:0 auto 26px auto;border-radius:18px;padding:26px;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.7));box-shadow:var(--shadow);display:flex;gap:24px;align-items:center}
+    .hero-left{flex:1}
+    .hero h2{margin:0;font-size:1.6rem;color:var(--maroon)}
+    .hero p{margin:6px 0 0 0;color:#5a5856}
+    .cta{margin-top:14px;display:flex;gap:12px}
+    .btn{background:var(--maroon);color:var(--white);padding:10px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:600;box-shadow:0 8px 22px rgba(122,14,22,0.14)}
+    .btn.alt{background:transparent;border:1px solid rgba(0,0,0,0.06);color:#333}
+
+    .hero-right{width:220px;display:flex;align-items:center;justify-content:center}
+    .hero-card{width:200px;height:200px;border-radius:14px;background:linear-gradient(135deg,#fff 0%,#FFF5EE 100%);box-shadow:0 10px 30px rgba(0,0,0,0.06);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(-6deg);transition:transform .45s cubic-bezier(.2,.9,.22,1)}
+    .hero-card:hover{transform:rotate(0deg) translateY(-6px)}
+
+    /* Grid */
+    .wrap{max-width:1200px;margin:20px auto;display:flex;gap:24px}
+    .sidebar{width:220px}
+    .sidebar .card{background:var(--white);padding:16px;border-radius:14px;box-shadow:var(--shadow)}
+    .categories{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+    .cat{padding:10px;border-radius:10px;cursor:pointer;border:1px solid transparent}
+    .cat.active{background:linear-gradient(90deg,rgba(122,14,22,0.06),rgba(122,14,22,0.03));border-color:rgba(122,14,22,0.12);color:var(--maroon);font-weight:600}
+
+    .products{flex:1}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .product{background:var(--white);border-radius:14px;padding:12px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .28s ease, box-shadow .28s ease}
+    .product:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.12)}
+    .media{height:140px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#fff,#FFF8F0)}
+    .media img{width:100%;height:100%;object-fit:cover;display:block}
+    .p-body{padding-top:10px}
+    .price{font-weight:700;color:var(--maroon)}
+    .tags{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+    .tag{font-size:0.78rem;padding:6px 8px;border-radius:999px;background:rgba(0,0,0,0.04)}
+    .card-actions{display:flex;gap:8px;align-items:center;margin-top:12px}
+    .add{flex:1;background:linear-gradient(90deg,var(--maroon),#a9151a);color:var(--white);padding:8px 10px;border-radius:10px;border:0;cursor:pointer}
+    .wishlist{border:1px solid rgba(0,0,0,0.06);padding:8px;border-radius:10px;background:transparent}
+
+    /* Cart bubble */
+    .cart{position:fixed;right:26px;bottom:26px;background:var(--maroon);color:var(--white);padding:12px 14px;border-radius:999px;box-shadow:0 12px 30px rgba(122,14,22,0.18);z-index:60;display:flex;gap:12px;align-items:center;cursor:pointer}
+    .cart .count{background:rgba(255,255,255,0.12);padding:6px 8px;border-radius:999px}
+
+    /* Modal */
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.35);display:none;align-items:center;justify-content:center;z-index:80}
+    .modal{width:90%;max-width:860px;background:var(--white);border-radius:18px;padding:18px;display:flex;gap:18px;box-shadow:0 30px 80px rgba(0,0,0,0.25)}
+    .modal-left{flex:1}
+    .modal-right{width:340px}
+
+    /* small screens */
+    @media (max-width:880px){
+      .wrap{flex-direction:column;padding:0 12px}
+      .sidebar{width:100%}
+      .hero{flex-direction:column;align-items:flex-start}
+      .hero-right{width:100%;display:flex;justify-content:flex-end}
+    }
+
+    /* micro animations */
+    .fade-in{animation:fadeIn .45s ease both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">
+      <div class="logo">BK</div>
+      <div>
+        <h1>Toko Bakery</h1>
+        <p>Ragam kue artisan & klasik — segar setiap hari</p>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="11" r="6" stroke="#666" stroke-width="1.5"/></svg>
+        <input id="searchInput" placeholder="Cari kue, rasa atau bahan..." />
+      </div>
+      <button class="filter-btn" id="sortBtn">Urutkan ▼</button>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-left">
+      <h2>Selamat datang di Toko Bakery</h2>
+      <p>Temukan kue favoritmu — dari lapis legit hingga bolu kukus. Klik produk untuk melihat detail, atau gunakan filter untuk mempersempit pilihan.</p>
+      <div class="cta">
+        <button class="btn" id="viewAll">Tampilkan Semua</button>
+        <button class="btn alt" id="specials">Promo & Rekomendasi</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=7c89b8ed61b0d4f4c8a3c2d9d1b8e1d8" alt="kue" style="width:100%;height:100%;object-fit:cover;border-radius:14px;" />
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <aside class="sidebar">
+      <div class="card">
+        <h3>Filter Kategori</h3>
+        <div class="categories" id="categories">
+          <div class="cat active" data-cat="all">Semua</div>
+          <div class="cat" data-cat="cake">Cake</div>
+          <div class="cat" data-cat="cookies">Cookies</div>
+          <div class="cat" data-cat="traditional">Kue Tradisional</div>
+          <div class="cat" data-cat="pastry">Pastry</div>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+
+      <div class="card">
+        <h3>Harga</h3>
+        <p style="margin:8px 0 0 0;color:var(--muted);font-size:0.95rem">Geser untuk mengatur rentang harga</p>
+        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+          <input type="range" id="priceRange" min="10" max="200" value="120" />
+          <div style="font-weight:700;color:var(--maroon)"><span id="priceVal">120</span>k</div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="products">
+      <div class="grid" id="productGrid">
+        <!-- Product cards populated by JS -->
+      </div>
+    </main>
+  </div>
+
+  <div class="cart" id="cartBtn" title="Lihat keranjang">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6h15l-1.5 9h-11L4 3H2" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div>Keranjang</div>
+    <div class="count" id="cartCount">0</div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="modal fade-in" role="dialog" aria-modal="true">
+      <div class="modal-left" id="modalLeft"></div>
+      <div class="modal-right" id="modalRight"></div>
+    </div>
+  </div>
+
+  <script>
+    // Sample data — bisa diganti dengan data nyata
+    const products = [
+      {id:1,title:'Red Velvet Cake',cat:'cake',price:120,desc:'Lapisan lembut dengan cream cheese frosting. Cocok untuk ulang tahun.',img:'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6e2f5e8fc5f4d1a3f9f6c3c2b4e6a5d3'},
+      {id:2,title:'Kue Lapis Legit',cat:'traditional',price:160,desc:'Lapis legit premium, manis seimbang, tekstur berlapis klasik.',img:'https://images.unsplash.com/photo-1612197529778-0f0f6b4f6a6a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=ab2c9f2a9c9a4f8b0c7f1e3d4b8a2c1b'},
+      {id:3,title:'Bolu Kukus Pandan',cat:'traditional',price:35,desc:'Lembut, harum pandan. Pas untuk cemilan.',img:'https://images.unsplash.com/photo-1615484470003-3b69f1b5c2e5?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcdef1234567890abcdef1234567890'},
+      {id:4,title:'Almond Cookie Box',cat:'cookies',price:55,desc:'Biskuit renyah dengan taburan almond premium.',img:'https://images.unsplash.com/photo-1541712298313-a5f9a2a8e2a6?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=123456abcdef7890'},
+      {id:5,title:'Croissant Butter',cat:'pastry',price:45,desc:'Lapisan tipis, butter melimpah, renyah sempurna.',img:'https://images.unsplash.com/photo-1512009130649-4f0f76d1f3a8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=999888777666555444'},
+      {id:6,title:'Cheesecake New York',cat:'cake',price:130,desc:'Padat, creamy, dengan dasar biskuit renyah.',img:'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=aa11bb22cc33dd44'},
+      {id:7,title:'Kue Nastar',cat:'cookies',price:30,desc:'Kue nastar isi selai nanas, favorit hari raya.',img:'https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=111222333444555'},
+      {id:8,title:'Fruit Tart Mini',cat:'pastry',price:65,desc:'Tart kecil penuh buah segar dan glaze manis.',img:'https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcabcabcabcabc'},
+    ];
+
+    const productGrid = document.getElementById('productGrid');
+    const categoriesEl = document.getElementById('categories');
+    const searchInput = document.getElementById('searchInput');
+    const priceRange = document.getElementById('priceRange');
+    const priceVal = document.getElementById('priceVal');
+    const cartCount = document.getElementById('cartCount');
+    const overlay = document.getElementById('overlay');
+    const modalLeft = document.getElementById('modalLeft');
+    const modalRight = document.getElementById('modalRight');
+
+    let state = {
+      cat: 'all',
+      q: '',
+      maxPrice: Number(priceRange.value),
+      cart: []
+    }
+
+    priceVal.textContent = priceRange.value;
+
+    function renderProducts(){
+      const filtered = products.filter(p=>{
+        const matchCat = state.cat === 'all' || p.cat === state.cat;
+        const matchQ = p.title.toLowerCase().includes(state.q) || p.desc.toLowerCase().includes(state.q);
+        const matchPrice = p.price <= state.maxPrice;
+        return matchCat && matchQ && matchPrice;
+      })
+      productGrid.innerHTML = '';
+      filtered.forEach(p=>{
+        const card = document.createElement('article');
+        card.className = 'product fade-in';
+        card.innerHTML = `
+          <div class="media"><img src="${p.img}" alt="${p.title}" loading="lazy"/></div>
+          <div class="p-body">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h4 style="margin:0">${p.title}</h4>
+              <div class="price">${p.price}k</div>
+            </div>
+            <p style="margin:6px 0 0 0;color:#666;font-size:0.95rem;height:44px;overflow:hidden">${p.desc}</p>
+            <div class="tags">
+              <div class="tag">${p.cat}</div>
+              <div class="tag">Stok terbatas</div>
+            </div>
+            <div class="card-actions">
+              <button class="add" data-id="${p.id}">Tambah</button>
+              <button class="wishlist" data-id="${p.id}">❤</button>
+            </div>
+          </div>
+        `;
+        // click to open modal
+        card.addEventListener('click', (e)=>{ if(!e.target.closest('.add') && !e.target.closest('.wishlist')) openModal(p.id) });
+        // add to cart
+        card.querySelector('.add').addEventListener('click', (e)=>{ e.stopPropagation(); addToCart(p.id); animateAdd(e.target); });
+        card.querySelector('.wishlist').addEventListener('click', (e)=>{ e.stopPropagation(); e.target.classList.toggle('liked'); });
+        productGrid.appendChild(card);
+      })
+      if(filtered.length===0){
+        productGrid.innerHTML = '<div style="padding:30px;background:var(--white);border-radius:12px;box-shadow:var(--shadow)">Tidak ada produk yang cocok.</div>'
+      }
+    }
+
+    function animateAdd(btn){
+      btn.animate([
+        {transform:'scale(1)'},
+        {transform:'scale(0.92)'},
+        {transform:'scale(1)'}
+      ],{duration:260,easing:'cubic-bezier(.2,.9,.22,1)'});
+    }
+
+    function addToCart(id){
+      state.cart.push(id);
+      cartCount.textContent = state.cart.length;
+      // small pop visual
+      const cartBtn = document.getElementById('cartBtn');
+      cartBtn.animate([{transform:'translateY(0)'},{transform:'translateY(-6px)'},{transform:'translateY(0)'}],{duration:320});
+    }
+
+    function openModal(id){
+      const p = products.find(x=>x.id===id);
+      modalLeft.innerHTML = `
+        <img src="${p.img}" alt="${p.title}" style="width:100%;height:420px;object-fit:cover;border-radius:12px"/>
+      `;
+      modalRight.innerHTML = `
+        <h2 style="margin-top:0;color:var(--maroon)">${p.title}</h2>
+        <p style="margin:6px 0;color:#555">${p.desc}</p>
+        <div style="font-weight:800;font-size:1.5rem;color:var(--maroon);margin-top:10px">${p.price}k</div>
+        <div style="margin-top:18px;display:flex;gap:10px">
+          <button class="btn" id="modalAdd">Tambah ke Keranjang</button>
+          <button class="btn alt" id="modalClose">Tutup</button>
+        </div>
+      `;
+      overlay.style.display = 'flex';
+      document.getElementById('modalClose').addEventListener('click', ()=> overlay.style.display='none');
+      document.getElementById('modalAdd').addEventListener('click', ()=>{ addToCart(id); overlay.style.display='none'; });
+    }
+
+    // categories
+    categoriesEl.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{
+      categoriesEl.querySelectorAll('.cat').forEach(x=>x.classList.remove('active'));
+      c.classList.add('active');
+      state.cat = c.dataset.cat;
+      renderProducts();
+    }))
+
+    // search
+    searchInput.addEventListener('input',(e)=>{ state.q = e.target.value.trim().toLowerCase(); renderProducts(); })
+
+    // price
+    priceRange.addEventListener('input',(e)=>{ state.maxPrice = Number(e.target.value); priceVal.textContent = e.target.value; renderProducts(); })
+
+    // shortcuts
+    document.getElementById('viewAll').addEventListener('click', ()=>{ state.cat='all'; categoriesEl.querySelectorAll('.cat').forEach(x=>x.classList.remove('active')); categoriesEl.querySelector('[data-cat="all"]').classList.add('active'); renderProducts(); })
+    document.getElementById('specials').addEventListener('click', ()=>{ state.q='promo'; searchInput.value='promo'; renderProducts(); })
+
+    // close modal when click outside
+    overlay.addEventListener('click',(e)=>{ if(e.target===overlay) overlay.style.display='none' })
+
+    // initial render
+    renderProducts();
+
+    // accessible keyboard support for cart
+    document.getElementById('cartBtn').addEventListener('click', ()=>{
+      alert('Isi keranjang: ' + state.cart.length + ' item (simulasi).');
+    });
+
+  </script>
+</body>
+</html>
