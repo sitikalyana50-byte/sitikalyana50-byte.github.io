@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#ff4da6"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="60" fill="url(#g)"/>
+  <path d="M36 64a28 28 0 1 1 56 0v16a12 12 0 0 1-12 12H48a12 12 0 0 1-12-12V64z" fill="#fff" opacity=".95"/>
+  <circle cx="64" cy="50" r="12" fill="#fff"/>
+  <text x="64" y="118" text-anchor="middle" font-family="Poppins, sans-serif" font-size="18" fill="#fff" opacity=".8">MK</text>
+</svg>

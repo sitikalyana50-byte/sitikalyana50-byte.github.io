@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffe0f1"/><stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#g)"/>
+  <g fill="#ff4da6" opacity=".9">
+    <rect x="120" y="120" width="180" height="160" rx="14"/>
+    <rect x="340" y="100" width="180" height="200" rx="14"/>
+    <rect x="560" y="140" width="120" height="120" rx="14"/>
+  </g>
+  <text x="40" y="60" font-size="36" font-family="Poppins, sans-serif" fill="#0f172a">Bedah Minimal Invasif</text>
+</svg>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meychan Ki • Klinik Bedah Organ Dalam</title>
+  <meta name="description" content="Klinik bedah organ dalam Meychan Ki — edukasi kesehatan, layanan bedah minimal invasif, konsultasi ahli, dan pemesanan online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Floating gradient background blobs -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <img src="assets/logo.svg" alt="Logo Meychan Ki" class="logo"/>
+        <span>Meychan Ki</span>
+      </a>
+
+      <nav class="menu">
+        <a href="#beranda">Beranda</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#edukasi">Edukasi</a>
+        <a href="#dokter">Dokter</a>
+        <a href="#toko">Toko</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+
+      <div class="actions">
+        <button id="themeToggle" class="btn ghost" aria-label="Ganti tema">🌓</button>
+        <button id="cartButton" class="btn pill">
+          <span>Cart</span>
+          <span id="cartCount" class="badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="beranda" class="hero container">
+    <div class="hero-text">
+      <h1 class="reveal-up">
+        Klinik Bedah Organ Dalam Paling <span class="grad-text">Kekinian</span>
+      </h1>
+      <p class="muted reveal-up delay-1">
+        Teknologi minimal invasif, tim ahli berpengalaman, dan pengalaman pasien
+        yang hangat. Edukasi kesehatan organ dalam untuk semua.
+      </p>
+      <div class="cta reveal-up delay-2">
+        <a href="#toko" class="btn primary">Pesan Konsultasi</a>
+        <a href="#layanan" class="btn ghost">Lihat Layanan</a>
+      </div>
+      <div class="hero-stats reveal-up delay-3">
+        <div class="stat">
+          <div class="stat-num" data-count="1500">0</div>
+          <div class="stat-label">Prosedur Sukses</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="98">0</div>
+          <div class="stat-label">Skor Kepuasan (%)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="24">0</div>
+          <div class="stat-label">Jam Layanan</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="slider reveal-left">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img src="assets/slide-1.svg" alt="Bedah minimal invasif">
+          <div class="caption">
+            <h3>Bedah Minimal Invasif</h3>
+            <p>Luka kecil, pemulihan cepat, hasil maksimal.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="assets/slide-2.svg" alt="Pemindaian organ mutakhir">
+          <div class="caption">
+            <h3>Pemindaian Mutakhir</h3>
+            <p>USG, CT, dan endoskopi dengan visual jernih.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="assets/slide-3.svg" alt="Perawatan personal">
+          <div class="caption">
+            <h3>Perawatan Personal</h3>
+            <p>Rencana perawatan disesuaikan kebutuhan Anda.</p>
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn prev" aria-label="Sebelumnya">❮</button>
+      <button class="slider-btn next" aria-label="Berikutnya">❯</button>
+      <div class="dots" id="dots"></div>
+    </div>
+  </main>
+
+  <!-- Layanan -->
+  <section id="layanan" class="container section">
+    <h2 class="section-title reveal-up">Layanan Unggulan</h2>
+    <p class="muted center reveal-up delay-1">Fokus pada organ dalam dengan pendekatan menyeluruh.</p>
+    <div class="grid cards reveal-up delay-2">
+      <article class="card hover-lift">
+        <img src="assets/icon-liver.svg" alt="Hati & Hepatobilier">
+        <h3>Hati & Hepatobilier</h3>
+        <p>Evaluasi fungsi hati, terapi batu empedu, dan bedah laparoskopi.</p>
+      </article>
+      <article class="card hover-lift">
+        <img src="assets/icon-gi.svg" alt="Saluran Cerna">
+        <h3>Saluran Cerna</h3>
+        <p>Endoskopi, kolonoskopi, dan manajemen GERD berbasis bukti.</p>
+      </article>
+      <article class="card hover-lift">
+        <img src="assets/icon-kidney.svg" alt="Ginjal & Urologi">
+        <h3>Ginjal & Urologi</h3>
+        <p>Deteksi dini batu ginjal dan prosedur ureteroskopi modern.</p>
+      </article>
+      <article class="card hover-lift">
+        <img src="assets/icon-pancreas.svg" alt="Pankreas">
+        <h3>Pankreas</h3>
+        <p>Penanganan pankreatitis akut/kronis dan evaluasi tumor.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Edukasi -->
+  <section id="edukasi" class="container section">
+    <h2 class="section-title reveal-up">Edukasi Kesehatan</h2>
+    <div class="accordion reveal-up delay-1">
+      <details>
+        <summary>Apa itu bedah minimal invasif?</summary>
+        <p>Teknik yang menggunakan sayatan kecil sehingga nyeri lebih ringan dan pemulihan lebih cepat.</p>
+      </details>
+      <details>
+        <summary>Kapan harus memeriksakan nyeri perut?</summary>
+        <p>Jika nyeri hebat, disertai demam, muntah, atau kuning pada mata/kulit — segera konsultasi.</p>
+      </details>
+      <details>
+        <summary>Persiapan endoskopi</summary>
+        <p>Puasa sesuai instruksi, hentikan obat pengencer darah bila diarahkan dokter, dan datang tepat waktu.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Dokter -->
+  <section id="dokter" class="container section">
+    <h2 class="section-title reveal-up">Tim Dokter</h2>
+    <div class="grid team reveal-up delay-1">
+      <article class="card doc hover-lift">
+        <img src="assets/doc-1.svg" alt="dr. Aria, Sp.B-KBD">
+        <div>
+          <h3>dr. Aria, Sp.B-KBD</h3>
+          <p>Bedah Digestif • Fokus laparoskopi</p>
+        </div>
+      </article>
+      <article class="card doc hover-lift">
+        <img src="assets/doc-2.svg" alt="dr. Naya, Sp.PD-KGEH">
+        <div>
+          <h3>dr. Naya, Sp.PD-KGEH</h3>
+          <p>Penyakit Dalam • Gastroentero-hepatologi</p>
+        </div>
+      </article>
+      <article class="card doc hover-lift">
+        <img src="assets/doc-3.svg" alt="dr. Tama, Sp.U">
+        <div>
+          <h3>dr. Tama, Sp.U</h3>
+          <p>Urologi • Endourologi</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Toko / Booking -->
+  <section id="toko" class="container section">
+    <h2 class="section-title reveal-up">Toko & Booking</h2>
+    <p class="muted center reveal-up delay-1">Pilih layanan/produk kesehatan, tambahkan ke cart, dan checkout.</p>
+
+    <div class="store reveal-up delay-2">
+      <div class="store-list" id="productList">
+        <!-- Cards generated by JS -->
+      </div>
+
+      <aside class="cart">
+        <h3>Keranjang</h3>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-summary">
+          <div class="line">
+            <span>Subtotal</span>
+            <strong id="subtotal">Rp0</strong>
+          </div>
+          <div class="line">
+            <span>Biaya Admin</span>
+            <strong id="fee">Rp0</strong>
+          </div>
+          <div class="line total">
+            <span>Total</span>
+            <strong id="total">Rp0</strong>
+          </div>
+          <a href="#checkout" class="btn primary full" id="goCheckout">Checkout</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Checkout -->
+  <section id="checkout" class="container section">
+    <h2 class="section-title reveal-up">Checkout</h2>
+    <form id="checkoutForm" class="checkout reveal-up delay-1">
+      <div class="fields">
+        <label>Nama Lengkap
+          <input required type="text" name="name" placeholder="Nama Anda"/>
+        </label>
+        <label>Email
+          <input required type="email" name="email" placeholder="nama@email.com"/>
+        </label>
+        <label>No. HP/WA
+          <input required type="tel" name="phone" placeholder="08xxxx"/>
+        </label>
+        <label>Tanggal Kunjungan
+          <input required type="date" name="date"/>
+        </label>
+        <label>Catatan Tambahan
+          <textarea name="notes" placeholder="Keluhan singkat / preferensi jam"></textarea>
+        </label>
+      </div>
+      <div class="review">
+        <h3>Ringkasan</h3>
+        <div id="checkoutSummary" class="checkout-summary"></div>
+        <button class="btn primary full" type="submit">Konfirmasi Pesanan</button>
+        <p class="muted tiny">*Simulasi. Tidak ada pembayaran sesungguhnya.</p>
+      </div>
+    </form>
+    <div id="orderResult" class="order-result"></div>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="container section">
+    <h2 class="section-title reveal-up">Kontak & Lokasi</h2>
+    <div class="grid contact reveal-up delay-1">
+      <div class="card">
+        <h3>Klinik Meychan Ki</h3>
+        <p>Jl. Sehat No. 88, Jakarta</p>
+        <p>Sen–Min: 08.00–20.00</p>
+        <p>Telp/WA: 0812-0000-0000</p>
+        <a class="btn ghost" href="mailto:halo@meychanki.example">Kirim Email</a>
+      </div>
+      <div class="card">
+        <h3>Form Pertanyaan</h3>
+        <form id="contactForm" class="contact-form">
+          <input type="text" name="qname" placeholder="Nama">
+          <input type="email" name="qmail" placeholder="Email">
+          <textarea name="qmsg" rows="4" placeholder="Pertanyaan"></textarea>
+          <button class="btn" type="submit">Kirim</button>
+          <p id="contactResult" class="tiny muted"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brandline">
+        <img src="assets/logo.svg" alt="Logo" class="logo small"/>
+        <strong>Meychan Ki</strong> — Klinik Bedah Organ Dalam
+      </div>
+      <div class="links">
+        <a href="#beranda">Beranda</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#edukasi">Edukasi</a>
+        <a href="#toko">Toko</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+      <p class="tiny muted">© <span id="year"></span> Meychan Ki. Semua hak dilindungi.</p>
+    </div>
+  </footer>
+
+  <button id="scrollTop" class="scroll-top" aria-label="Kembali ke atas">↑</button>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
